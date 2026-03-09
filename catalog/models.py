@@ -8,8 +8,8 @@ class Product(models.Model):
     image = models.ImageField(upload_to='home/photo', blank=True, null=True, verbose_name='изображение')
     category = models.ForeignKey("Category", on_delete=models.CASCADE, related_name='products')
     price = models.FloatField(verbose_name='цена за покупку')
-    created_at = models.DateTimeField(verbose_name='дата создания')
-    updated_at = models.DateTimeField(verbose_name='дата последнего изменения')
+    created_at = models.DateField(verbose_name='дата создания')
+    updated_at = models.DateField(verbose_name='дата последнего изменения')
 
     class Meta:
         verbose_name = 'Продукт'

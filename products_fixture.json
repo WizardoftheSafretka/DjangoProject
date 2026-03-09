@@ -1,0 +1,54 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Огурец",
+        "description": null,
+        "image": "",
+        "category": 7,
+        "price": 100.0,
+        "created_at": "2002-01-01",
+        "updated_at": "2002-01-02"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "Помидор",
+        "description": null,
+        "image": "",
+        "category": 7,
+        "price": 101.0,
+        "created_at": "2003-01-01",
+        "updated_at": "2003-01-02"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+        "name": "Яблоко",
+        "description": null,
+        "image": "",
+        "category": 8,
+        "price": 100.0,
+        "created_at": "2002-01-01",
+        "updated_at": "2002-01-02"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+        "name": "Апельсин",
+        "description": null,
+        "image": "",
+        "category": 8,
+        "price": 101.0,
+        "created_at": "2003-01-01",
+        "updated_at": "2003-01-02"
+    }
+}
+]
