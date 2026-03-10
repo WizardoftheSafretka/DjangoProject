@@ -5,7 +5,7 @@ from django.db import models
 class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='наименование продукта')
     description = models.TextField(verbose_name='описание продукта', blank=True, null=True)
-    image = models.ImageField(upload_to='home/photo', blank=True, null=True, verbose_name='изображение')
+    image = models.ImageField(upload_to='catalog/photo', blank=True, null=True, verbose_name='изображение')
     category = models.ForeignKey("Category", on_delete=models.CASCADE, related_name='products')
     price = models.FloatField(verbose_name='цена за покупку')
     created_at = models.DateField(verbose_name='дата создания')
