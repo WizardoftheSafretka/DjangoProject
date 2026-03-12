@@ -1,0 +1,18 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Овощи",
+        "description": null
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+        "name": "Фрукты",
+        "description": null
+    }
+}
+]
