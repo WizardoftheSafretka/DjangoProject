@@ -5,7 +5,7 @@
     "fields": {
         "name": "Плагин Огурца",
         "description": "Самый обычный плагин Огурца",
-        "image": "",
+        "image": "catalog/photo/Огурец.avif",
         "category": 1,
         "price": 100.0,
         "created_at": "2002-01-01",
@@ -18,7 +18,7 @@
     "fields": {
         "name": "Плагин Помидора",
         "description": "Самый обычный плагин Помидора",
-        "image": "",
+        "image": "catalog/photo/Помидор.avif",
         "category": 1,
         "price": 101.0,
         "created_at": "2003-01-01",
@@ -31,7 +31,7 @@
     "fields": {
         "name": "Плагин Яблока",
         "description": "Самый обычный плагин Яблока",
-        "image": "",
+        "image": "catalog/photo/Яблоко.avif",
         "category": 2,
         "price": 100.0,
         "created_at": "2002-01-01",
@@ -44,7 +44,7 @@
     "fields": {
         "name": "Плагин Апельсина",
         "description": "Самый обычный плагин Апельсина",
-        "image": "",
+        "image": "catalog/photo/Апельсин.webp",
         "category": 2,
         "price": 101.0,
         "created_at": "2003-01-01",
