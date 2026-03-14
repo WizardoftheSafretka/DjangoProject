@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load my_tags %}
 <div class="row text-center">
         {% for product in products %}
         <div class="col-3">
@@ -8,7 +9,7 @@
                     <h4 class="my-0 font-weight-normal">{{product.name}}</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$ 140</h1>
+                    <img src ="{{product.image | media_filter }}">
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>Описание: {{product.description | truncatechars:100}}</li>
                     </ul>
