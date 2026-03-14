@@ -3,7 +3,7 @@
     "model": "catalog.category",
     "pk": 1,
     "fields": {
-        "name": "Овощи",
+        "name": "Плагин Овощи",
         "description": null
     }
 },
@@ -11,7 +11,7 @@
     "model": "catalog.category",
     "pk": 2,
     "fields": {
-        "name": "Фрукты",
+        "name": "Плагин Фрукты",
         "description": null
     }
 }

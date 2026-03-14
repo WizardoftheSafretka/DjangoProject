@@ -3,10 +3,10 @@
     "model": "catalog.product",
     "pk": 1,
     "fields": {
-        "name": "Огурец",
-        "description": null,
+        "name": "Плагин Огурца",
+        "description": "Самый обычный плагин Огурца",
         "image": "",
-        "category": 7,
+        "category": 1,
         "price": 100.0,
         "created_at": "2002-01-01",
         "updated_at": "2002-01-02"
@@ -16,10 +16,10 @@
     "model": "catalog.product",
     "pk": 2,
     "fields": {
-        "name": "Помидор",
-        "description": null,
+        "name": "Плагин Помидора",
+        "description": "Самый обычный плагин Помидора",
         "image": "",
-        "category": 7,
+        "category": 1,
         "price": 101.0,
         "created_at": "2003-01-01",
         "updated_at": "2003-01-02"
@@ -29,10 +29,10 @@
     "model": "catalog.product",
     "pk": 3,
     "fields": {
-        "name": "Яблоко",
-        "description": null,
+        "name": "Плагин Яблока",
+        "description": "Самый обычный плагин Яблока",
         "image": "",
-        "category": 8,
+        "category": 2,
         "price": 100.0,
         "created_at": "2002-01-01",
         "updated_at": "2002-01-02"
@@ -42,10 +42,10 @@
     "model": "catalog.product",
     "pk": 4,
     "fields": {
-        "name": "Апельсин",
-        "description": null,
+        "name": "Плагин Апельсина",
+        "description": "Самый обычный плагин Апельсина",
         "image": "",
-        "category": 8,
+        "category": 2,
         "price": 101.0,
         "created_at": "2003-01-01",
         "updated_at": "2003-01-02"
