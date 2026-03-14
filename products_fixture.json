@@ -1,7 +1,7 @@
 [
 {
     "model": "catalog.product",
-    "pk": 8,
+    "pk": 1,
     "fields": {
         "name": "Огурец",
         "description": null,
@@ -14,7 +14,7 @@
 },
 {
     "model": "catalog.product",
-    "pk": 9,
+    "pk": 2,
     "fields": {
         "name": "Помидор",
         "description": null,
@@ -27,7 +27,7 @@
 },
 {
     "model": "catalog.product",
-    "pk": 10,
+    "pk": 3,
     "fields": {
         "name": "Яблоко",
         "description": null,
@@ -40,7 +40,7 @@
 },
 {
     "model": "catalog.product",
-    "pk": 11,
+    "pk": 4,
     "fields": {
         "name": "Апельсин",
         "description": null,
