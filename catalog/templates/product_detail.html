@@ -2,7 +2,6 @@
 {% block content %}
 {% load my_tags %}
 <div class="row text-center">
-        {% for product in products %}
         <div class="col-3">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
@@ -12,13 +11,15 @@
                     <img src ="{{product.image | media_filter }}">
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>Описание: {{product.description | truncatechars:100}}</li>
+                        <li>Цена: {{product.price}}</li>
+                        <li>Дата создания: {{product.created_at}}</li>
+                        <li>Дата последнего изменения: {{product.updated_at}}</li>
                     </ul>
                     <div class="btn-group">
-                    <a class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}" role='button'>Подробнее</a>
+                    <a class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}" role='button'>Назад</a>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
 {% endblock %}
