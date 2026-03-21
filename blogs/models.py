@@ -15,9 +15,3 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
-
-    def increase_views(self):
-        """Метод для увеличения счетчика просмотров"""
-
-        self.count_views += 1
-        self.save(update_fields=['count_views'])
