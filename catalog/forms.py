@@ -2,11 +2,12 @@ from django.forms.models import ModelForm
 
 from catalog.models import Product
 
+class StyleFormMixin
 
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'image', 'category', 'price']
+        exclude = ('created_at', 'updated_at',)
 
 
 
