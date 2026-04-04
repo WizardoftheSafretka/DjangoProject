@@ -1,0 +1,26 @@
+{% extends "blogs/base.html" %}
+{% block content %}
+{% load my_tags %}
+<div class="row text-center">
+        {% for blog in object_list %}
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{blog.title}}</h4>
+                </div>
+                <div class="card-body">
+                    <img src ="{{blog.image | media_filter }}">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>Содержание: {{blog.content | truncatechars:100}}</li>
+                    </ul>
+                    <div class="btn-group">
+                    <a class="btn btn-primary" href="{% url 'blogs:blogs_detail' blog.pk %}" role='button'>Подробнее</a>
+                        <a class="btn btn-primary" href="{% url 'blogs:blogs_update' blog.pk %}" role='button'>Редактировать</a>
+                        <a class="btn btn-primary" href="{% url 'blogs:blogs_delete' blog.pk %}" role='button'>Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

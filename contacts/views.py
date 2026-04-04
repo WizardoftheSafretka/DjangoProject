@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def contacts(request):
-    return render(request, "contacts.html")
+class ContactsView(TemplateView):
+
+    template_name = 'contacts/contacts.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
