@@ -7,7 +7,7 @@ from catalog.views import HomeListView, HomeDetailView, HomeUpdateView, HomeDele
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('home/', HomeListView.as_view(), name="home"),
+    path('', HomeListView.as_view(), name="home"),
     path('product/<int:pk>/', HomeDetailView.as_view(), name="product_detail"),
     path('product/create/', HomeCreateView.as_view(), name="product_create"),
     path('product/<int:pk>/update/', HomeUpdateView.as_view(), name="product_update"),
