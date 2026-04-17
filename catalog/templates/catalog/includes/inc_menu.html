@@ -9,6 +9,7 @@
         </form>
         {% else %}
         <a class="btn btn-outline-primary" href="{% url 'users:login' %}">Вход</a>
+        <a class="btn btn-outline-primary" href="{% url 'users:register' %}">Зарегистрироваться</a>
         {% endif %}
         <a class="btn btn-outline-primary" href="/contacts/">Контакты</a>
     </nav>

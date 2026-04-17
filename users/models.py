@@ -6,9 +6,10 @@ from phonenumber_field.modelfields import PhoneNumberField
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True, verbose_name='Email')
-    phone_number = PhoneNumberField(blank=True, verbose_name='Телефон', help_text='Введите номер телефона')
+    phone_number = PhoneNumberField(blank=True, null=True, verbose_name='Телефон', help_text='Введите номер телефона')
     avatar = models.ImageField(upload_to='users/avatars/', blank=True, verbose_name='Аватар', null=True, help_text='Загрузите изображение')
     country = models.CharField(max_length=50, blank=True, null=True, verbose_name='Страна', help_text='Введите название страны')
+    token = models.CharField(max_length=100, verbose_name='Token', blank=True, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
