@@ -17,12 +17,16 @@
                         <a class="btn btn-primary flex-fill text-truncate"
                         href="{% url 'catalog:product_detail' product.pk %}"
                         role='button'>Подробнее</a>
+                        {% if request.user == product.owner %}
                         <a class="btn btn-primary flex-fill text-truncate"
                         href="{% url 'catalog:product_update' product.pk %}"
                         role='button'>Редактировать</a>
+                        {% endif %}
+                        {% if request.user == product.owner %}
                         <a class="btn btn-primary flex-fill text-truncate"
                         href="{% url 'catalog:product_delete' product.pk %}"
                         role='button'>Удалить</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
