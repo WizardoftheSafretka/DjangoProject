@@ -10,11 +10,15 @@ class Product(models.Model):
     price = models.FloatField(verbose_name='цена за покупку')
     created_at = models.DateField(verbose_name='дата создания')
     updated_at = models.DateField(verbose_name='дата последнего изменения')
+    is_published = models.BooleanField(default=False, verbose_name="Статус публикации")
 
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
         ordering = ('name',)
+        permissions = [
+            ('can_unpublish_product', 'Can unpublish product')
+        ]
 
     def __str__(self):
         return self.name
