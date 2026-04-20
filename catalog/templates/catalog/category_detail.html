@@ -1,0 +1,44 @@
+{% extends "catalog/base.html" %}
+{% block content %}
+{% load my_tags %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1 class="display-5">{{ category.name }}</h1>
+        {% if category.description %}
+        <p class="lead">{{ category.description }}</p>
+        {% endif %}
+    </div>
+</div>
+<div class="row text-center">
+        {% for product in products  %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{product.name}}</h4>
+                </div>
+                <div class="card-body">
+                    <img src ="{{product.image | media_filter }}">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>Описание: {{product.description | truncatechars:100}}</li>
+                    </ul>
+                    <div class="btn-group d-flex flex-wrap gap-1 w-100">
+                        <a class="btn btn-primary flex-fill text-truncate"
+                        href="{% url 'catalog:product_detail' product.pk %}"
+                        role='button'>Подробнее</a>
+                        {% if request.user == product.owner %}
+                        <a class="btn btn-primary flex-fill text-truncate"
+                        href="{% url 'catalog:product_update' product.pk %}"
+                        role='button'>Редактировать</a>
+                        {% endif %}
+                        {% if request.user == product.owner %}
+                        <a class="btn btn-primary flex-fill text-truncate"
+                        href="{% url 'catalog:product_delete' product.pk %}"
+                        role='button'>Удалить</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
