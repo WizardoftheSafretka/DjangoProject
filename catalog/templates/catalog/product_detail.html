@@ -16,6 +16,12 @@
                         <li>Дата создания: {{object.created_at}}</li>
                         <li>Дата последнего изменения: {{object.updated_at}}</li>
                     </ul>
+                    {% if "library.can_recommend_book" in perms %}
+                    <form action="{% url 'catalog:product_unpublish' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Опубликовать</button>
+                    </form>
+                    {% endif %}
                     <div class="btn-group">
                     <a class="btn btn-primary" href="{% url 'catalog:home' %}" role='button'>Назад</a>
                     </div>
