@@ -1,14 +1,18 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.cache import cache_page
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 from catalog.forms import ProductForm
-from catalog.models import Product
+from catalog.models import Product, Category
+from catalog.services import get_products_by_category
 
 
 class OwnerRequiredMixin(UserPassesTestMixin):
@@ -36,7 +40,21 @@ class OwnerOrModeratorRequiredMixin(UserPassesTestMixin):
 
 class HomeListView(ListView):
     model = Product
+    context_object_name = 'products'
 
+    def get_queryset(self):
+        queryset = cache.get('products_queryset')
+        if not queryset:
+            queryset = super().get_queryset()
+            cache.set('products_queryset', queryset, 60 * 15)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
+@method_decorator(cache_page(60 * 15), name='dispatch')
 class HomeDetailView(LoginRequiredMixin, DetailView):
     model = Product
 
@@ -73,3 +91,15 @@ class UnpublishProductView(LoginRequiredMixin, View):
         product.save()
 
         return redirect('catalog:product_detail', product_id=product.pk)
+
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'catalog/category_detail.html'
+    context_object_name = 'category'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = get_products_by_category(self.object.id)
+        context['categories'] = Category.objects.all()
+        return context

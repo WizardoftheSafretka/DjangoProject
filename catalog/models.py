@@ -1,18 +1,23 @@
 from django.conf import settings
 from django.db import models
 
-# Product: наименование, описание, изображение, категория, цена за покупку, дата создания, дата последнего изменения.
-
 class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='наименование продукта')
     description = models.TextField(verbose_name='описание продукта', blank=True, null=True)
     image = models.ImageField(upload_to='catalog/photo', blank=True, null=True, verbose_name='изображение')
-    category = models.ForeignKey("Category", on_delete=models.CASCADE, related_name='products')
-    price = models.FloatField(verbose_name='цена за покупку')
-    created_at = models.DateField(verbose_name='дата создания')
-    updated_at = models.DateField(verbose_name='дата последнего изменения')
+    category = models.ForeignKey("Category", on_delete=models.CASCADE, related_name='products', verbose_name='категория')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='цена за покупку')  # Исправлено
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')  # Исправлено
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='дата последнего изменения')  # Исправлено
     is_published = models.BooleanField(default=False, verbose_name="Статус публикации")
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='products', verbose_name="Владелец")
+    owner = models.ForeignKey(
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,
+    related_name='products',
+    verbose_name="Владелец",
+    null=True,
+    blank=True,
+)
 
     class Meta:
         verbose_name = 'Продукт'
@@ -31,7 +36,7 @@ class Category(models.Model):
     description = models.TextField(verbose_name='описание категории', blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Категрия'
+        verbose_name = 'Категория'  # Исправлено
         verbose_name_plural = 'Категории'
         ordering = ('name',)
 
